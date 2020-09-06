@@ -1,7 +1,5 @@
 # Calculator
 
-<img src=""./assets/ScreenShot.PNG>
-
 A simple Calculator built in flutter.
 
 ## Installation
@@ -20,7 +18,7 @@ for android:
 flutter build apk
 ```
 
-<img src="./assets/ScreenShot1.PNG">
+<img src="./assets/ScreenShot.PNG">
 
 ## Getting Started
 
