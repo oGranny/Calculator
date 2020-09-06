@@ -2,6 +2,11 @@
 
 A simple Calculator built using flutter SDK.
 
+## Dependencies
+
+- flutter sdk: ">=2.7.0 <3.0.0"
+- math_expressions: ^2.0.0
+
 ## Installation
 
 ### if using emulator
