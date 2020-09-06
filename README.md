@@ -1,6 +1,6 @@
 # Calculator
 
-A simple Calculator built in flutter.
+A simple Calculator built using flutter SDK.
 
 ## Installation
 
