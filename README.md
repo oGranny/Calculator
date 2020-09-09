@@ -1,6 +1,8 @@
 # Calculator
 
-A simple Calculator built using flutter SDK.
+A simple Calculator built using flutter SDK. 
+
+[Live demo](https://ogranny.github.io/Projects/Calculator/)
 
 ## Dependencies
 
