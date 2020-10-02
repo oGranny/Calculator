@@ -5,8 +5,10 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.purple,
+        elevation: 0,
         title: Text(
           "Calculator",
           style: TextStyle(
@@ -35,23 +37,28 @@ class _BodyState extends State<Body> {
 
   Widget buildButton(
       String buttonText, double buttonHeight, Color buttonColor) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.1 * buttonHeight,
-      color: buttonColor,
-      child: FlatButton(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(0.0),
-              side: BorderSide(
-                  color: Colors.white, width: 1, style: BorderStyle.solid)),
-          padding: EdgeInsets.all(16.0),
-          onPressed: () => buttonPressed(buttonText),
-          child: Text(
-            buttonText,
-            style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.normal,
-                color: Colors.white),
-          )),
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.1 * buttonHeight,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: buttonColor,
+        ),
+        child: FlatButton(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: EdgeInsets.all(16.0),
+            onPressed: () => buttonPressed(buttonText),
+            child: Text(
+              buttonText,
+              style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white),
+            )),
+      ),
     );
   }
 
@@ -81,7 +88,12 @@ class _BodyState extends State<Body> {
           Parser p = Parser();
           Expression exp = p.parse(expression);
           ContextModel cm = ContextModel();
-          result = "${exp.evaluate(EvaluationType.REAL, cm)}";
+          final _val = exp.evaluate(EvaluationType.REAL, cm);
+          if(_val.runtimeType==double){
+            result=_val.toStringAsFixed(_val.truncateToDouble() == _val ? 0 : 1);
+          }else{
+          result = "$_val";
+          }
         } catch (e) {
           result = "Err";
         }
